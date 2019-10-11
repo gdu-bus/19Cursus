@@ -10,15 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(const char *s)
-{
-	int l;
-
-	l = 0;
-	while (s[l])
-		l++;
-	return (l);
-}
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
