@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 19:09:43 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2019/10/09 19:33:22 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2019/10/14 17:14:01 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned int	i;
-	const char		*s1;
+	unsigned int		i;
+	unsigned const char	*s1;
 
 	s1 = s;
 	i = 0;

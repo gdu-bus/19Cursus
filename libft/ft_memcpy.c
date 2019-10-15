@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:37:59 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2019/10/09 16:24:06 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2019/10/14 14:34:34 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	s1 = (unsigned char *)dest;
 	s2 = (unsigned char *)src;
 	i = 0;
+	if (!s1 && !s2)
+		return (NULL);
 	while (i < n)
 	{
 		s1[i] = s2[i];

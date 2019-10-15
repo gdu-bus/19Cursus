@@ -6,7 +6,7 @@
 #    By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/11 19:21:32 by gdu-bus-          #+#    #+#              #
-#    Updated: 2019/10/11 20:16:56 by gdu-bus-         ###   ########.fr        #
+#    Updated: 2019/10/11 20:43:07 by gdu-bus-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS	=		ft_atoi.c ft_isalpha.c ft_memccpy.c ft_memmove.c ft_strlcat.c ft_strnstr
 
 OBJS	=		$(SRCS:.c=.o)
 CC		=		gcc
-CFLAGS	=		-W -Wall -Wextra -Werror
+CFLAGS	=		-Wall -Wextra -Werror
 RM		=		rm -f
 %.o		:		%.c
 				$(CC) $(CCFLAGS) -c -o $@ $<
