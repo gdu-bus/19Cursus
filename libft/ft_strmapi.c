@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 12:52:15 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2019/10/15 17:18:03 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2019/10/17 10:27:48 by gdu-bus-          #+#    #+#             */
+/*   Updated: 2019/10/17 16:17:59 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t i;
+	char	*mapi;
+	size_t	i;
 
+	if (s == NULL || f == NULL)
+		return (NULL);
+	if (!(mapi = ft_strdup((char *)s)))
+		return (NULL);
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && (i < n))
+	while (mapi[i] != '\0')
 	{
-		if (s1[i] == s2[i])
-			i++;
-		else
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		mapi[i] = f((unsigned int)i, mapi[i]);
+		i++;
 	}
-	return (0);
+	return (mapi);
 }
