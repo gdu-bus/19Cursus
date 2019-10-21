@@ -12,16 +12,17 @@
 
 #include "libft.h"
 
-void	*calloc(size_t nmem, size_t size)
+void	*calloc(size_t count, size_t size)
 {
 	char	*result;
 	size_t	i;
 
 	i = 0;
-	if (nmem == 0 || size == 0)
+	if (count == 0 || size == 0)
 		return (NULL);
-	result = malloc(size * nmem);
-	while (i <= nmem)
+	if (!(result = malloc(size * count)))
+		return (NULL);
+	while (i <= count)
 	{
 		result[i] = '\0';
 		i++;

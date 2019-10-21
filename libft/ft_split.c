@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 17:58:31 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2019/10/18 10:15:26 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2019/10/21 17:51:05 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ static void		cleanup(char **split, size_t n)
 char			**ft_split(char const *s, char c)
 {
 	char	**split;
-	size_t 	n;
-	size_t 	nbrmot;
+	size_t	n;
+	size_t	nbrmot;
 
 	if (!s || !c)
 		return (NULL);
