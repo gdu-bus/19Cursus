@@ -22,7 +22,7 @@ static size_t	long_mot(char const *s, char c)
 	return (i);
 }
 
-int				nbr_mots(char *str, char sep)
+static int		nbr_mots(char *str, char sep)
 {
 	int		result;
 	int		i;
@@ -51,7 +51,7 @@ static char		*mot_suiv(char const *s, char c)
 
 static void		cleanup(char **split, size_t n)
 {
-	int		i;
+	size_t i;
 
 	i = 0;
 	while (i < n)

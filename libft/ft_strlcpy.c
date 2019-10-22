@@ -14,20 +14,26 @@
 
 size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	unsigned int	l;
-	unsigned int	i;
+	size_t	n;
 
-	if (!src)
-		return (0);
-	l = 0;
-	while (src[l] != '\0')
-		++l;
-	i = 0;
-	while (src[i] != '\0' && i < (size - 1))
+	if (size == 0)
+		return (ft_strlen(src));
+	n = 0;
+	while (size-- > 1 && *src)
 	{
-		dest[i] = src[i];
-		++i;
+		*dest = *src;
+		dest++;
+		src++;
+		n++;
 	}
-	dest[i] = '\0';
-	return (l);
+	*dest = '\0';
+	while (*dest || *src)
+	{
+		if (*src)
+		{
+			src++;
+			n++;
+		}
+	}
+	return (n);
 }
