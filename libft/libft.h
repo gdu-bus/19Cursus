@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 19:33:54 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2019/10/30 18:47:00 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2019/10/30 16:38:23 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 /*
-** Put in
+** Putin
 */
 
 void	ft_putchar_fd(char c, int fd);
