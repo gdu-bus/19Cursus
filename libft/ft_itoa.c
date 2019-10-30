@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 11:59:05 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2019/10/30 18:21:32 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2019/10/23 12:53:20 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char				*ft_itoa(int n)
 	i = 0;
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	n_size = count_len(n);
+	n_size = ft_nbrlen(n);
 	if (!(str = (char *)malloc(sizeof(char) * (n_size + 1))))
 		return (NULL);
 	str[n_size] = '\0';
