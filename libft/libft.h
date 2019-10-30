@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 19:33:54 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2019/10/18 10:15:49 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2019/10/30 16:38:23 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** Malloc
 */
 
-void	*calloc(size_t nmem, size_t size);
+void	*ft_calloc(size_t nmem, size_t size);
 char	**ft_split(char const *s, char c);
 
 /*
@@ -69,7 +69,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 */
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strdup(char *src);
+char	*ft_strdup(const char *src);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
 char	*ft_strchr(const char *s, int c);
@@ -79,7 +79,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 size_t	ft_strlen(const char *str);
-size_t	ft_strlcpy(char *dest, char *src, unsigned int size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 
 #endif

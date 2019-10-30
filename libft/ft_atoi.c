@@ -6,25 +6,20 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 16:22:52 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2019/10/15 16:29:30 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2019/10/23 12:52:56 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-int		ft_signe(char c)
+static int		ft_signe(char c)
 {
 	if (c == '+' || c == '-')
 		return (1);
 	return (0);
 }
 
-int		ft_atoi(const char *str)
+int				ft_atoi(const char *str)
 {
 	int						s;
 	unsigned long long int	v;

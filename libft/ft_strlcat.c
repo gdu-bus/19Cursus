@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	l;
 	size_t	res;
 
+	if (!src)
+		return (0);
 	i = 0;
 	while (dest[i] != '\0')
 		++i;
