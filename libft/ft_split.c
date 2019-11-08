@@ -12,81 +12,80 @@
 
 #include "libft.h"
 
-static size_t	long_mot(char const *s, char c)
+static int		ft_nbw(const char *str, char c)
 {
-	size_t	i;
+	int word;
 
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (i);
-}
-
-static int		nbr_mots(char *str, char sep)
-{
-	int		result;
-	int		i;
-
-	i = 0;
-	result = 0;
-	while (str[i] && str[i] == sep)
-		i++;
-	while (str[i])
+	word = 0;
+	if (*str != c && *str)
 	{
-		while (str[i] && str[i] != sep)
-			i++;
-		result++;
-		while (str[i] && str[i] == sep)
-			i++;
+		str++;
+		word++;
 	}
-	return (result);
+	while (*str)
+	{
+		while (*str == c)
+		{
+			str++;
+			if (*str != c && *str)
+				word++;
+		}
+		str++;
+	}
+	return (word);
 }
 
-static char		*mot_suiv(char const *s, char c)
+static int		ft_ln(const char *str, char c)
 {
-	while (*s && *s == c)
-		s++;
-	return ((char *)s);
+	int count;
+
+	count = 0;
+	while (*str != c && *str)
+	{
+		count++;
+		str++;
+	}
+	return (count);
 }
 
-static void		cleanup(char **split, size_t n)
+static void		*cleanup(char **spt)
 {
-	size_t i;
+	int	i;
 
 	i = 0;
-	while (i < n)
+	while (spt[i])
 	{
-		free(split[i]);
-		i++;
+		free(spt[i++]);
 	}
-	free(split);
+	free(spt);
+	return (NULL);
 }
 
 char			**ft_split(char const *s, char c)
 {
-	char	**split;
-	size_t	n;
-	size_t	nbrmot;
+	int		j;
+	int		i;
+	char	**spt;
 
-	if (!s || !c)
+	j = 0;
+	i = 0;
+	if (!s || (!(spt = (char **)malloc(sizeof(char *) * (ft_nbw(s, c) + 1)))))
 		return (NULL);
-	nbrmot = nbr_mots((char *)s, c);
-	split = (char **)malloc((nbrmot + 1) * sizeof(char *));
-	if (split == NULL)
-		return (NULL);
-	n = 0;
-	while (n < nbrmot)
+	while (*s)
 	{
-		s = mot_suiv(s, c);
-		split[n] = ft_substr(s, 0, long_mot(s, c));
-		if (split[n] == NULL)
+		while (*s == c && *s)
+			s++;
+		if (*s != c && *s)
 		{
-			cleanup(split, n);
-			return (NULL);
+			if (!(spt[j] = (char *)malloc(sizeof(char) * (ft_ln(s, c) + 1))))
+				return (cleanup(spt));
+			while (*s && *s != c)
+				spt[j][i++] = (char)*s++;
+			spt[j][i] = '\0';
+			j++;
+			i = 0;
 		}
-		n++;
-		s += long_mot(s, c);
 	}
-	split[nbrmot] = NULL;
-	return (split);
+	spt[j] = NULL;
+	return (spt);
 }

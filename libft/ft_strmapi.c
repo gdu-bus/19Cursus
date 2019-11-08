@@ -14,18 +14,22 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*mapi;
+	char	*new;
 	size_t	i;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
-	if (!(mapi = ft_strdup((char *)s)))
-		return (NULL);
-	i = 0;
-	while (mapi[i] != '\0')
+	if (s)
 	{
-		mapi[i] = f((unsigned int)i, mapi[i]);
-		i++;
+		new = ft_strdup((const char *)s);
+		if (new == NULL)
+			return (NULL);
+		i = 0;
+		while (new[i] != 0)
+		{
+			new[i] = f((unsigned int)i, new[i]);
+			i++;
+		}
+		return (new);
 	}
-	return (mapi);
+	else
+		return (NULL);
 }

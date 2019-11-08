@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 19:50:04 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2019/11/04 18:46:24 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2019/11/07 12:16:40 by gdu-bus-          #+#    #+#             */
+/*   Updated: 2019/11/07 14:08:20 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char *new;
+	t_list	*tmp;
+	t_list	*tmp2;
 
-	if (!(new = malloc(size * count)))
+	if (!*lst || !del)
+		return ;
+	if (!lst)
+		return ;
+	tmp = *lst;
+	while (tmp)
 	{
-		return (NULL);
+		tmp2 = tmp->next;
+		ft_lstdelone(tmp, del);
+		tmp = tmp2;
 	}
-	ft_memset(new, 0, count * size);
-	return (new);
+	*lst = NULL;
 }
