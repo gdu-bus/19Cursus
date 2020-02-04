@@ -6,14 +6,14 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:38:16 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/01/22 14:18:26 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/02/03 15:43:53 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
+#  define BUFFER_SIZE 5
 # endif
 # include <unistd.h>
 # include <stdlib.h>
