@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 15:53:19 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/02/06 16:30:30 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/02/12 16:52:00 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int		check_buf(char **line, char *buf, char *temp, char **stat)
 		temp[x] = '\0';
 		if (!(*line = ft_strjoin(line, temp)))
 			return (ft_free(stat, -1));
+		free(*stat);
 		if (!(*stat =  ft_strdup(&buf[x + 1])))
 			return (ft_free(stat, -1));
 		return (1);
@@ -110,7 +111,7 @@ int		main(void)
 	int		i;
 
 	nb_line = 1;
-	if ((fd = open("test.c", O_RDONLY)) == -1)
+	if ((fd = open("test.txt", O_RDONLY)) == -1)
 		printf("erreur dans le fichier");
 	while ((i = get_next_line(fd, &line)) > 0)
 	{
@@ -118,6 +119,7 @@ int		main(void)
 		nb_line++;
 		free(line);
 	}
+	free(line);
 	printf("line read is : [%d] %s\n", nb_line, line);
 	return (0);
 }
