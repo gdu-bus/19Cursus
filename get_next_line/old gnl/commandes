@@ -1,0 +1,4 @@
+open maxlenul.txt
+gcc main.c get_next_line_utils.c get_next_line.c
+./a.out test.txt test.txt test.txt
+
