@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 14:49:30 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/02/19 14:49:33 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/02/21 13:34:17 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <string.h>
 # include <stdio.h>
 
+int		get_next_line(int fd, char **line);
 int		ft_strlen(char *str);
 char	*ft_strdup(char *str);
 char	*ft_strjoin(char *line, char *buf);
