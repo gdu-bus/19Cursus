@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 23:33:22 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/03/03 23:33:30 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/03/06 12:26:47 by gauthier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,16 @@ int findIndex(char *tab, char element)
 {
     int index = 0;
 
-    for (index = 0; tab[index] != 0; index++)
+    while (tab[index] != 0)
     {
         if (tab[index] == element)
             return (index);
+	index++;
     }
     return (-1);
 }
-void my_printf(char *src, ...)
+
+void my_printf(char *format, ...)
 {
     void (*tabFunction[3]) (va_list *) = { my_printf_str, my_printf_char
                                                         , my_printf_nbr};
@@ -58,20 +60,24 @@ void my_printf(char *src, ...)
     int i = 0;
     int tmpIndex = 0;
 
-    va_start(my_list, src);
-    for (i = 0; src[i] != 0; i++)
+    va_start(my_list, format);
+    while (format[i] != 0)
     {
-        if (i != 0 && src[i - 1] == '%')
+        if (i != 0 && format[i - 1] == '%')
         {
-            tmpIndex = findIndex(tabIndex, src[i]);
+            tmpIndex = findIndex(tabIndex, format[i]);
             if (tmpIndex != -1)
                 (*tabFunction[tmpIndex]) (&my_list);
         }
-        else if (src[i] != '%')
-            write(1, &src[i], 1);
+        else if (format[i] != '%')
+            write(1, &format[i], 1);
+	i++;
     }
 }
+
 int main(int ac, char const **argv)
 {
-    my_printf("AZERTY %s %d %c\n", "QWERTY", 42, 'q');
+	ac = 0;
+	argv = NULL;
+	my_printf("Ecriture avant les variables\n%s\n%d\n%c\n", "Ecriture apres les variables", 42, 'q');
 }
