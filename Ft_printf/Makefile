@@ -12,7 +12,31 @@
 
 NAME		=	libftprintf.a
 
-SRCS		=	./libft/*.c *.h
+SRCS		=	...
+LIBFT_P	=	./libft/
 
+CC			= gcc
+CFLAGS		=	-Wall -Wextra -Werror
+RM			= rm -f
+OBJS		=	$(SRCS:%.c=%.o)
+INCL		=	ft_printf.h
 
-(...)
+all 		: $(NAME)
+
+$(NAME)	: $(OBJS)
+				make -C $(LIBFT_P) all
+				cp $(LIBFT_P) libft.a $(NAME)
+				ar rc $(NAME) $(OBJ) $(INCL)
+
+%.o			:	%.c	$(INCL)
+			$(CC)	$(CFLAGS) -c -o $@ $<
+
+clean		:
+					make -C $(LIBFT_P) clean
+					$(RM) $(OBJS)
+
+fclean	:	clean
+				$(RM) $(NAME)
+				$(RM) $(LIBFT_P)/libft.a
+				
+re			:	fclean all
