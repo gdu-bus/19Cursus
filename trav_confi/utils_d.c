@@ -36,3 +36,14 @@ void   flag_cond(t_f *f, t_put *put)
   if (f->width > f->precision && (size_t)f->width > put->len)
     put->width = f->whidth - put->precision - put->neg - put->len;
 }
+
+void	ft_write_num(long num, t_put *put)
+{
+	if (num < 0)
+		num = -num;
+	if (num >= 10)
+	{
+		ft_write_num((num / 10), put);
+	}
+	ft_write((num % 10) + '0', put);
+}
