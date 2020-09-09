@@ -10,4 +10,4 @@ Dont
 - NetWhat
 - Get_next_line
 - Ft_printf
-
+- work during confinement
