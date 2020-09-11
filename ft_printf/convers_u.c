@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 11:14:49 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/11 12:28:42 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/11 15:39:07 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,41 @@ static void apply_precision_zero(t_f *f, t_put *put, int nb)
     ft_write_unum(nb, put);
 }
 
+static void apply_flag(t_f *f, t_put *put, unsigned int nb)
+{
+  if (f->zero)
+  {
+    while (put->width--)
+      ft_write('0', put);
+    ft_write_unum(nb, put);
+  }
+  if (f->minus)
+  {
+    if (f->precision > 0)
+      while (put->precision--)
+        ft_write('0', put);
+    ft_write_unum(nb, put);
+    while (put->width)
+      ft_write(' ', put);
+  }
+}
+
+static void apply_width(t_put *put, unsigned int nb)
+{
+  while (put->width--)
+    ft_write(' ', put);
+  while (put->precision--)
+    ft_write('0', put);
+  ft_write_unum(nb, put);
+}
+
+static void apply_precision(t_put *put, unsigned int nb)
+{
+  while (put->precision--)
+    ft_write('0', put);
+  ft_write_unum(nb, put);
+}
+
 void convers_u(va_list arg, t_f *f, t_put *put)
 {
   unsigned int   nb;
@@ -37,5 +72,14 @@ void convers_u(va_list arg, t_f *f, t_put *put)
     apply_precision_zero(f, put, nb);
     return ;
   }
-  
+  else if (nb == 0 && !f->width && f->precision == -1)
+    ft_write('0', put);
+  if ((f->zero || f->minus) && (f->width || f->precision))
+    apply_flag(f, put, nb);
+  else if (!f->minus && !f->zero && put->width)
+    apply_width(put, nb);
+  if (put->precision && !put->width && !f->zero && !f->minus)
+    apply_precision(put, nb);
+  else if ((f->zero || f->minus) && !f->width && f->precision == -1)
+    ft_write_unum(nb, put);
 }

@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 13:17:29 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/11 12:14:51 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/11 14:41:54 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void apply_flag(t_f *f, t_put *put, int nb)
       ft_write('0', put);
     ft_write_num(nb, put);
   }
-  if (put->minus)
+  if (f->minus)
   {
     if (put->neg)
       ft_write('-', put);

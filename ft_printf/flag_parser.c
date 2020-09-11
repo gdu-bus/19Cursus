@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 10:21:38 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/11 12:10:41 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/11 16:19:06 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static void		parser_conditions(t_f *f, char c, char *specs)
 		f->none = 1;
 }
 
-size_t     flag_parser(t_f *f, const char str, va_list arg)
+size_t     flag_parser(t_f *f, const char *str, va_list arg)
 {
   size_t  x;
   char  *specs;
 
   x = 1;
-  specs = "scdiupxX%"
+  specs = "scdiupxX%";
   while (str[x] == '0' && x++)
     f->zero = 1;
   while (str[x] == '-' && x++)
@@ -59,10 +59,10 @@ size_t     flag_parser(t_f *f, const char str, va_list arg)
   if (str[x] == '*' && x++)
     f->width = va_arg(arg, int);
   else if (str[x] >= '1' && str[x] <= '9')
-    f->width = atoilen(&str[x], &x);
+    f->width = ft_atoilen(&str[x], &x);
   if (str[x] == '.' && x++)
    {
-     if (str[x] '*' && x++)
+     if (str[x] == '*' && x++)
       f->precision = va_arg(arg, int);
     else
       f->precision = ft_atoilen(&str[x], &x);
