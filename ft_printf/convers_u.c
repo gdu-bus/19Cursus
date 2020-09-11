@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 11:14:49 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/11 12:20:45 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/11 12:28:42 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ static void apply_precision_zero(t_f *f, t_put *put, int nb)
 {
   if (nb == 0 && f->precision)
   {
-    
+    put->width = f->width;
+    while (put->width--)
+      ft_write(' ', put);
   }
+  if (!put->precision && put->width)
+    ft_write_unum(nb, put);
 }
 
 void convers_u(va_list arg, t_f *f, t_put *put)
@@ -33,4 +37,5 @@ void convers_u(va_list arg, t_f *f, t_put *put)
     apply_precision_zero(f, put, nb);
     return ;
   }
+  
 }
