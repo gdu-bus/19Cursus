@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
+/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 14:01:48 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/03 15:34:13 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/11 10:21:46 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ void   flag_cond(t_f *f, t_put *put)
     put->width = f->whidth - put->precision - put->neg - put->len;
 }
 
-void	ft_write_num(long num, t_put *put)
+void ft_write_num(long num, t_put *put)
 {
-	if (num < 0)
-		num = -num;
-	if (num >= 10)
-	{
-		ft_write_num((num / 10), put);
-	}
-	ft_write((num % 10) + '0', put);
-}
+  if (num < 0)
+    num = -num;
+  if (num >= 10)
+    ft_write_num((num / 10), put);
+  ft_write((num % 10) + '0', put);
+ }
