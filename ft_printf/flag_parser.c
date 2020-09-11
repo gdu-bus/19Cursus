@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
+/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 10:21:38 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/08/18 14:51:37 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/11 12:10:41 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void          init_put(t_put *put)
 {
   put->width = 0;
   put->precision = 0;
-  put-neg = 0;
+  put->neg = 0;
 }
 
 static void		parser_conditions(t_f *f, char c, char *specs)
@@ -43,7 +43,7 @@ static void		parser_conditions(t_f *f, char c, char *specs)
 		f->none = 1;
 }
 
-size_t     parser(t_f *f, const char str, va_list arg)
+size_t     flag_parser(t_f *f, const char str, va_list arg)
 {
   size_t  x;
   char  *specs;

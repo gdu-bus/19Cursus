@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 13:17:29 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/09 13:08:10 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/11 12:14:51 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static void apply_precision_zero(t_f *f, t_put *put, int nb)
   if (nb == 0 && f->precision == 0)
   {
     put->width = f->width;
-    while (put->whidth--)
+    while (put->width--)
       ft_write(' ', put);
   }
-  if (!put->precision && !put->whidth)
+  if (!put->precision && !put->width)
   {
     if (put->neg)
       ft_write('-', put);
@@ -34,7 +34,7 @@ static void apply_flag(t_f *f, t_put *put, int nb)
   {
     if (put->neg)
       ft_write('-', put);
-    while (f->whidth--)
+    while (f->width--)
       ft_write('0', put);
     ft_write_num(nb, put);
   }
@@ -46,14 +46,14 @@ static void apply_flag(t_f *f, t_put *put, int nb)
       while (put->precision--)
         ft_write('0', put);
     ft_write_num(nb, put);
-    while (f->whidth--)
+    while (f->width--)
       ft_write(' ', put);
   }
 }
 
 static void apply_width(t_put *put, int nb)
 {
-  while (put->whidth--)
+  while (put->width--)
     ft_write(' ', put);
   if (put->neg)
     ft_write('-', put);
@@ -84,17 +84,17 @@ void    convers_d(va_list arg, t_f *f, t_put *put)
     put->neg = 1;
   }
   flag_cond(f, put);
-  if ((nb == 0 && f->precision == 0) || (!put->precision && !put->whidth))
+  if ((nb == 0 && f->precision == 0) || (!put->precision && !put->width))
   {
     apply_precision_zero(f, put, nb);
     return ;
   }
-  else if (nb == 0 && !f->whidth && f->precision == -1)
+  else if (nb == 0 && !f->width && f->precision == -1)
     ft_write('0', put);
   if (f->zero || f->minus)
     apply_flag(f, put, nb);
   else if (!f->minus && !f->zero && put->width)
     apply_width(put, nb);
-  if (put->precision && !put->whidth && !f->zero && !f->minus)
+  if (put->precision && !put->width && !f->zero && !f->minus)
     apply_precision(put, nb);
 }
