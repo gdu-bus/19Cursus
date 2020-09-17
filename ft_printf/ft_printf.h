@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 10:58:27 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/11 16:16:31 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/16 20:24:07 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void			convers_x(va_list arg, t_f *f, t_put *put, int x);
 void			convers_p(va_list arg, t_f *f, t_put *put);
 void			convers_s(va_list arg, t_f *f, t_put *put);
 void			convers_c(va_list arg, t_f *f, t_put *put, int i);
-int				ft_lenght_hex(long long unsigned int num);
+int				ft_hex_length(long long unsigned int num);
 char			ft_hex_conversion(long long unsigned int n, int x);
 char			ft_hexa_min(long long unsigned int num, t_put *put, int x);
 void			patser_convers(const char *format, t_f *f, t_put *put, va_list arg);
