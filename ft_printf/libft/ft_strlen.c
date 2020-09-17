@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/11 12:02:56 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/17 15:07:55 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2019/10/07 10:03:42 by gdu-bus-          #+#    #+#             */
+/*   Updated: 2020/09/17 15:06:40 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+#include "libft.h"
 
-typedef struct s_list t_list;
-struct      s_list
+size_t	ft_strlen(const char *str)
 {
-  void    *content;
-  t_list    *next;
-};
+	size_t len;
 
-int   ft_check_char(char *str, char c);
-size_t	ft_strlen(const char *str);
-
-# endif
+	if (!str)
+		return (0);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
