@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 14:52:28 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/03 11:36:52 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/18 14:13:56 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void  parser_convers(const char *format, t_f *f, t_put *put, va_list arg)
   if (format[put->len_perc] == 'c')
     convers_c(arg, f, put, 0);
   if (format[put->len_perc] == '%')
-    convers_percent(arg, f, put, 1);
+    convers_c(arg, f, put, 1);
 }

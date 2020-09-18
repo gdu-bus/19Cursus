@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_x.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 19:35:55 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/17 12:48:51 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/18 15:28:23 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_write_llunum(unsigned long long num, t_put *put)
+void	ft_write_ullnum(unsigned long long num, t_put *put)
 {
 	if (num >= 10)
 		ft_write_num((num / 10), put);
@@ -92,9 +92,9 @@ char   ft_hex_convers(long long unsigned int n, int x)
       return (hex_min[modulo]);
     }
   }
-  if (n)
+  if (x == 1)
   {
-    if (x == 1)
+    if (n)
     {
        modulo = n % 16;
       return (hex_maj[modulo]);

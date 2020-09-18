@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   utils_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 11:24:06 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/11 11:38:45 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/18 14:26:00 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void			ft_write_unum(unsigned int num, t_put *put)
+{
+	if (num >= 10)
+		ft_write_num((num / 10), put);
+	ft_write((num % 10) + '0', put);
+}
 
 unsigned int  ft_strlen_uint(unsigned int num)
 {

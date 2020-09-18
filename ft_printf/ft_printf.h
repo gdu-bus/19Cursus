@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 10:58:27 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/17 12:48:42 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/18 14:12:15 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void			convers_c(va_list arg, t_f *f, t_put *put, int i);
 int				ft_hex_len(long long unsigned int num);
 char			ft_hex_convers(long long unsigned int n, int x);
 char			ft_hexadecimal(long long unsigned int num, t_put *put, int x);
-void			patser_convers(const char *format, t_f *f, t_put *put, va_list arg);
+void			parser_convers(const char *format, t_f *f, t_put *put, va_list arg);
 size_t			flag_parser(t_f *f, const char *str, va_list arg);
 void			init_put(t_put *put);
 void			struc_init(t_f *f);

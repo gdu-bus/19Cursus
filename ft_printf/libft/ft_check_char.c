@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 11:18:45 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/08/18 13:41:55 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/18 14:18:16 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int   ft_check_char(char *str, char c)
 {
   while (*str)
   {
-    if (str == c)
+    if (*str == c)
       return (1);
     str++;
   }

@@ -5,42 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/09/17 16:02:09 by gdu-bus-          #+#    #+#              #
-#    Updated: 2020/09/18 15:33:28 by gdu-bus-         ###   ########.fr        #
+#    Created: 2020/09/18 14:14:40 by gdu-bus-          #+#    #+#              #
+#    Updated: 2020/09/18 15:07:44 by gdu-bus-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
 
-NAME = libftprintf.a
+NAME = libft.a
 
-LIBFT_P = libft/
-
-SRC = ft_printf.c parser_convers.c convers_d.c flag_parser.c utils.c utils_d.c \
-	  convers_u.c utils_u.c convers_x.c utils_x.c convers_p.c convers_s.c \
-	  convers_c.c \
+SRC = ft_strlen.c \
+		ft_check_char.c \
 
 
 OBJ = $(SRC:.c=.o)
-INCLUDE = ft_printf.h
 
-all : $(NAME)
+OBJ_B = $(SRC_B:.c=.o)
 
-$(NAME): $(OBJ)
-		make -C $(LIBFT_P) all
-		cp $(LIBFT_P)libft.a $(NAME)
-		ar rc $(NAME) $(OBJ) ft_printf.h
+all: $(NAME)
 
-%.o: %.c $(INCLUDE)
-		$(CC) $(CCFLAGS) -c -o $@ $<
+$(NAME): $(OBJ) libft.h
+	ar rc $(NAME) $(OBJ) libft.h
+
+
+%.o: %.c
+	$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
-		make -C $(LIBFT_P) clean
-		rm -f $(OBJ)
+	rm -f $(OBJ)
 
-fclean : clean
-		rm -rf $(NAME)
-		rm -rf $(LIBFT_P)/libft.a
+fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
