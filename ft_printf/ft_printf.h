@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/31 10:58:27 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/21 10:50:05 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2020/09/21 13:47:21 by gdu-bus-          #+#    #+#             */
+/*   Updated: 2020/09/21 13:57:43 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-typedef long long unsigned  t_llu;
+typedef long long unsigned	t_llu;
 
 /*
-** flags
+** Flags
 */
 
 typedef struct	s_f
@@ -37,8 +37,7 @@ typedef struct	s_f
 }				t_f;
 
 /*
-** Copie les esspaces et les zéros des variables et les
-** met dans le buffer
+** Copy the '0' && ' ' to add them in buffer
 */
 
 typedef struct	s_put
@@ -63,7 +62,8 @@ void			convers_c(va_list arg, t_f *f, t_put *put, int i);
 int				ft_hex_len(long long unsigned int num);
 char			ft_hex_convers(long long unsigned int n, int x);
 char			ft_hexadecimal(long long unsigned int num, t_put *put, int x);
-void			parser_convers(const char *format, t_f *f, t_put *put, va_list arg);
+void			parser_convers(const char *format, t_f *f, t_put *put,
+													va_list arg);
 size_t			flag_parser(t_f *f, const char *str, va_list arg);
 void			init_put(t_put *put);
 void			struc_init(t_f *f);
@@ -74,5 +74,6 @@ t_llu			ft_strlen_lluint(unsigned long long num);
 void			ft_write_num(long num, t_put *put);
 void			ft_write_unum(unsigned int num, t_put *put);
 void			ft_write_ullnum(unsigned long long int num, t_put *put);
+void		p_cond(t_f *f, t_put *put);
 
 #endif

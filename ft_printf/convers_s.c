@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/17 14:48:46 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/17 15:29:20 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2020/09/21 13:46:39 by gdu-bus-          #+#    #+#             */
+/*   Updated: 2020/09/21 13:52:29 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,27 +48,27 @@ static void		apply_width(t_f *f, t_put *put, char *str)
 			ft_write(' ', put);
 }
 
-void    convers_s(va_list arg, t_f *f, t_put *put)
+void			convers_s(va_list arg, t_f *f, t_put *put)
 {
-  char   *str;
-  int    len;
-  int    x;
+	char	*str;
+	int		len;
+	int		x;
 
-  x = 0;
-  str = va_arg(arg, char *);
-  if (str == NULL)
-    str = "(null)";
-  len = ft_strlen(str);
-  flag_cond_s(f, put, len);
-  if (f->precision == 0)
-  {
-    while (f->width--)
-      ft_write(' ', put);
-    return ;
-  }
-  if (put->width || put->precision)
-    apply_width(f, put, str);
-  else
-    while (str[x])
-      ft_write(str[x++], put);
+	x = 0;
+	str = va_arg(arg, char *);
+	if (str == NULL)
+		str = "(null)";
+	len = ft_strlen(str);
+	flag_cond_s(f, put, len);
+	if (f->precision == 0)
+	{
+		while (f->width--)
+			ft_write(' ', put);
+		return ;
+	}
+	if (put->width || put->precision)
+		apply_width(f, put, str);
+	else
+		while (str[x])
+			ft_write(str[x++], put);
 }

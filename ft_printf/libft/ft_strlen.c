@@ -5,21 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 10:03:42 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/17 15:06:40 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2020/09/21 13:45:45 by gdu-bus-          #+#    #+#             */
+/*   Updated: 2020/09/21 13:52:26 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	size_t len;
+	size_t	x;
 
-	if (!str)
-		return (0);
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+	x = 0;
+	while (s[x])
+		x++;
+	return (x);
 }

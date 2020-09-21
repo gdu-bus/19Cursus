@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/17 15:31:16 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/21 11:53:35 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2020/09/21 13:46:18 by gdu-bus-          #+#    #+#             */
+/*   Updated: 2020/09/21 13:52:22 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,30 @@ static void		convers_percent(t_f *f, t_put *put, char c)
 	}
 }
 
-void    convers_c(va_list arg, t_f *f, t_put *put, int i)
+void			convers_c(va_list arg, t_f *f, t_put *put, int i)
 {
-  char  c;
+	char c;
 
-  flag_cond_c(f, put);
-  if (i)
-    c = '%';
-  if (i && f->zero && !f->minus)
-  {
-    convers_percent(f, put, c);
-    return ;
-  }
-  if (!i)
-			c = va_arg(arg, int);
-  if (f->minus)
-  {
-    ft_write(c, put);
-    while (put->width--)
-      ft_write(' ', put);
-  }
-  else if (!f->minus)
-  {
-    while (put->width--)
-      ft_write(' ', put);
-    ft_write(c, put);
-  }
+	flag_cond_c(f, put);
+	if (i)
+		c = '%';
+	if (i && f->zero && !f->minus)
+	{
+		convers_percent(f, put, c);
+		return ;
+	}
+	if (!i)
+		c = va_arg(arg, int);
+	if (f->minus)
+	{
+		ft_write(c, put);
+		while (put->width--)
+			ft_write(' ', put);
+	}
+	else if (!f->minus)
+	{
+		while (put->width--)
+			ft_write(' ', put);
+		ft_write(c, put);
+	}
 }

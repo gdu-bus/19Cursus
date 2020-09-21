@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/17 13:56:13 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/17 14:31:02 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2020/09/21 13:46:34 by gdu-bus-          #+#    #+#             */
+/*   Updated: 2020/09/21 13:52:28 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,19 @@
 
 static void		flag_cond_p(t_f *f, t_put *put, unsigned long long int nb)
 {
-  init_put(put);
+	init_put(put);
 	if (f->precision != -1 && f->precision > (int)put->len - 2)
-    put->precision = f->precision - put->len + 2;
-  if ((size_t)f->width > put->len && f->width > f->precision)
-  {
-    put->width = f->width - put->len - f->precision + 2;
-    if (f->precision == -1)
-      put->width = put->width - 3;
-    if (f->precision == 0)
-      put->width = put->width - 2;
-  }
-  if (nb == 0 && f->width)
-    put->width = f->width - 3;
-}
-
-static void		p_cond(t_f *f, t_put *put)
-{
-	if (put->width)
-		put->width++;
-	if (f->minus)
+		put->precision = f->precision - put->len + 2;
+	if ((size_t)f->width > put->len && f->width > f->precision)
 	{
-  	ft_write('0', put);
-		ft_write('x', put);
-		while (put->width--)
-			ft_write(' ', put);
+		put->width = f->width - put->len - f->precision + 2;
+		if (f->precision == -1)
+			put->width = put->width - 3;
+		if (f->precision == 0)
+			put->width = put->width - 2;
 	}
-	if (!f->minus)
-	{
-		while (put->width--)
-			ft_write(' ', put);
-		ft_write('0', put);
-		ft_write('x', put);
-	}
+	if (nb == 0 && f->width)
+		put->width = f->width - 3;
 }
 
 static void		apply_minus(t_put *put, unsigned long long int nb)
@@ -92,19 +72,19 @@ static void		apply_precision(t_put *put, unsigned long long int nb)
 	ft_hexadecimal(nb, put, 0);
 }
 
-void    convers_p(va_list arg, t_f *f, t_put *put)
+void			convers_p(va_list arg, t_f *f, t_put *put)
 {
-  unsigned long long int  nb;
+	unsigned long long	nb;
 
-  nb = va_arg(arg, unsigned long long int);
-  put->len = ft_hex_len(nb) + 2;
-  flag_cond_p(f, put, nb);
-  if (nb == 0 && f->precision == 0 && f->width)
-  {
-    p_cond(f, put);
-    return ;
-  }
-  if (f->minus && (put->width || f->precision))
+	nb = va_arg(arg, unsigned long long int);
+	put->len = ft_hex_len(nb) + 2;
+	flag_cond_p(f, put, nb);
+	if (f->precision == 0 && nb == 0 && f->width)
+	{
+		p_cond(f, put);
+		return ;
+	}
+	if (f->minus && (put->width || f->precision))
 		apply_minus(put, nb);
 	else if (!f->minus && put->width)
 		apply_width(put, nb);
@@ -116,5 +96,5 @@ void    convers_p(va_list arg, t_f *f, t_put *put)
 		ft_write('x', put);
 		if (f->precision != 0)
 			ft_hexadecimal(nb, put, 0);
-  }
+	}
 }

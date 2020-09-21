@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
+/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/18 11:18:45 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/18 14:18:16 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2020/09/21 13:45:35 by gdu-bus-          #+#    #+#             */
+/*   Updated: 2020/09/21 13:52:25 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int   ft_check_char(char *str, char c)
+int		ft_check_char(char *str, char c)
 {
-  while (*str)
-  {
-    if (*str == c)
-      return (1);
-    str++;
-  }
-  return(0);
+	while (*str)
+	{
+		if (*str == c)
+			return (1);
+		str++;
+	}
+	return (0);
 }
