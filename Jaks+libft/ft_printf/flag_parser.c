@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   flag_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherrald <jherrald@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/28 10:21:38 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/21 11:45:03 by gdu-bus-         ###   ########.fr       */
+/*   Created: 2020/03/05 16:05:44 by jherrald          #+#    #+#             */
+/*   Updated: 2020/09/21 12:59:12 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void      struc_init(t_f *f)
+void			struc_init(t_f *f)
 {
 	f->zero = 0;
 	f->minus = 0;
@@ -22,14 +22,14 @@ void      struc_init(t_f *f)
 	f->none = 0;
 }
 
-void          init_put(t_put *put)
+void			init_put(t_put *put)
 {
 	put->width = 0;
 	put->precision = 0;
 	put->neg = 0;
 }
 
-static void		parser_conditions(t_f *f, char c, char *specs)
+static void		flag_parser_conditions(t_f *f, char c, char *specs)
 {
 	if (f->width < 0 && (f->width = -f->width))
 		f->minus = 1;
@@ -43,7 +43,7 @@ static void		parser_conditions(t_f *f, char c, char *specs)
 		f->none = 1;
 }
 
-size_t     flag_parser(t_f *f, const char *str, va_list arg)
+size_t			flag_parser(t_f *f, const char *str, va_list arg)
 {
 	size_t	x;
 	char	*specs;
@@ -67,6 +67,6 @@ size_t     flag_parser(t_f *f, const char *str, va_list arg)
 		else
 			f->precision = ft_atoilen(&str[x], &x);
 	}
-  parser_conditions(f, str[x], specs);
+	flag_parser_conditions(f, str[x], specs);
 	return (x - 1);
 }

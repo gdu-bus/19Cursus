@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
+/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 12:05:18 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/09 07:54:04 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/21 11:17:42 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@
 
 int    main(void)
 {
-  //my_printf("AZERTY %s %d %c\n", "QWERTY" , 19, 'q');
-  printf("%.5d\n", 123);
+  ft_printf("AZERTY %c\n", 'q');
   return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
+/*   By: gdu-bus- <gdu-bus-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 10:59:06 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/09/18 15:51:27 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/09/21 11:42:48 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,10 @@ int   ft_printf(const char *format, ...)
   }
   va_end(arg);
   return (put.pos);
+}
+
+int    main(void)
+{
+  ft_printf("AZERTY %2c\n", 'q');
+  return (0);
 }
