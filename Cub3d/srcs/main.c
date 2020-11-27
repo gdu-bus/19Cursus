@@ -6,7 +6,7 @@
 /*   By: gdu-bus- <gdu-bus-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 12:38:12 by gdu-bus-          #+#    #+#             */
-/*   Updated: 2020/11/25 18:39:26 by gdu-bus-         ###   ########.fr       */
+/*   Updated: 2020/11/26 11:46:51 by gdu-bus-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,24 +59,25 @@ int		launch_program(t_data *data, char *av)
 
 int   main(int ac, char **av)
 {
-  t_data    data;
+	t_data		data;
 
-  if (ft_errors(ac, av) < 0)
-    return (-1);
-  else if (ac == 2)
-  {
-    if ((launch_program(&data, av[1])) < 0)
-      return (exit_all(&data));
-    mlx_hook(data.mlx.mlx_win, 2, 1L << 1, ft_keyboard, &data);
-  	mlx_hook(data.mlx.mlx_win, 17, 0, exit_all, &data);
-  	mlx_loop(data.mlx.mlx_ptr);
-  }
-  else if (ac == 3 && !ft_strncmp(av[2], "--save", 5))
-  {
-    if ((launch_program(&data, av[1])) < 0)
+	if (ft_errors(ac, av) < 0)
+		return (-1);
+	else if (ac == 2)
+	{
+		if ((launch_program(&data, av[1])) < 0)
 			return (exit_all(&data));
-
+		mlx_hook(data.mlx.mlx_win, 2, 1L << 1, ft_keyboard, &data);
+		mlx_hook(data.mlx.mlx_win, 17, 0, exit_all, &data);
+		mlx_loop(data.mlx.mlx_ptr);
+	}
+	else if (ac == 3 && !ft_strncmp(av[2], "--save", 5))
+	{
+		if ((launch_program(&data, av[1])) < 0)
+			return (exit_all(&data));
+	  ft_bmp(&data);
   }
+  else
+    exit_all(&data);
+  return (0);
 }
-
- if not end
